@@ -1,0 +1,8 @@
+.container{
+    background-color: #305B8F;
+    border-radius: 20px;
+    display: flex;
+    justify-content: flex-end;
+    padding: 8px;
+    margin-bottom: 20px;
+}

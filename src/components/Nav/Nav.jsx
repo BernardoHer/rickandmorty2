@@ -1,19 +1,16 @@
 import React from 'react';
-import SearchBar from './SearchBar';
+import SearchBar from '../SearchBar/SearchBar.jsx'
+import styles from './Nav.module.css'
 
-function Nav() {
-  function handleSearch(id) {
-    console.log(`Buscando el ID ${id}...`);
-  }
-
+function Nav(props) {
+ 
   return (
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-      <SearchBar onSearch={handleSearch} />
+    <nav className={styles.container}>
+      <div>
+        <SearchBar
+          onSearch={(characterID) => props.onSearch(characterID)}
+        />
+      </div>
     </nav>
   );
 }
