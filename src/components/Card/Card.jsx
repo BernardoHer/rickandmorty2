@@ -5,7 +5,7 @@ import CloseButton from "../CloseButtonCard/CloseButton.jsx";
 export default function Card(props) {
   return (
     <div className={styles.card}>
-      <CloseButton onClick={()=>props.onClose} />
+      <CloseButton onClick={props.onClose} />
       <div className={styles.cardImage}>
         <img src={props.image} alt="Rick-imagen" />
       </div>
