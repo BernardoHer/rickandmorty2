@@ -21,7 +21,7 @@ export default function Detail(props) {
     return setCharacter({});
   }, []);
   return(
-   <div cl>
+   <div className={styles.container}>
        <h1 className={styles.h1} >Name: {character.name} </h1>
        <h1 className={styles.h1} >Status: {character.status} </h1>
        <h1 className={styles.h1} >Gender: {character.gender} </h1>
