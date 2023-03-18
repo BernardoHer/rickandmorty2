@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import styles from "./Detail.module.css";
 
 export default function Detail(props) {
+  const navigate = useNavigate()
   const { detailId } = useParams();
   const [character, setCharacter] = useState({});
   useEffect(() => {
@@ -22,11 +23,13 @@ export default function Detail(props) {
   }, [detailId]);
   return(
    <div className={styles.container}>
+     <button onClick={()=>navigate(-1)} >Regresar</button>
+      <div>
        <h1>Name: {character.name} </h1>
        <h1>Status: {character.status} </h1>
        <h1>Gender: {character.gender} </h1>
        <h1>Origin: {character.origin?.name} </h1> 
-       <h1>Image: {character.image} </h1>
-       
+       </div>
+       <img src={character.image}/>
        </div>
   )}
