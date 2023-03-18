@@ -19,14 +19,14 @@ export default function Detail(props) {
         window.alert("No hay personajes con ese ID");
       });
     return setCharacter({});
-  }, []);
+  }, [detailId]);
   return(
    <div className={styles.container}>
-       <h1 className={styles.h1} >Name: {character.name} </h1>
-       <h1 className={styles.h1} >Status: {character.status} </h1>
-       <h1 className={styles.h1} >Gender: {character.gender} </h1>
-       {/* <h1 className={styles.h1} >Origin:{character.origin} </h1> */}
-       <h1 className={styles.h1} >Image: {character.image} </h1>
+       <h1>Name: {character.name} </h1>
+       <h1>Status: {character.status} </h1>
+       <h1>Gender: {character.gender} </h1>
+       <h1>Origin: {character.origin?.name} </h1> 
+       <h1>Image: {character.image} </h1>
        
        </div>
   )}
