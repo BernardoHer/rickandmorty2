@@ -5,7 +5,8 @@ import Nav from "./components/Nav/Nav";
 import { Route, Routes } from "react-router-dom";
 import Detail from './components/Detail/Detail.jsx';
 import About from './components/About/About.jsx';
-import Form from './components/Form/Form.jsx'
+import Form from './components/Form/Form.jsx';
+
 
 
 function App() {

@@ -1,13 +1,14 @@
+import React from 'react';
 import styles from './Form.module.css'
 
-export default function Form(){
+export default function Form(props){
     return(
-        <Form>
-            <label htmlFor=''>Nombre: </label>
-            <input type='text' />
-             <label htmlFor=''>Password: </label>
-            <input type='password' />
-            <button> Login </button>
-        </Form>
-    )
-}
+    <form className={styles.container}>
+        <label htmlfor='' >Nombre: </label>
+        <input type='text'/>
+         <label htmlfor='' >Password: </label>
+        <input type='password'/>
+        <button>Login</button>
+        </form>
+        );
+    }
