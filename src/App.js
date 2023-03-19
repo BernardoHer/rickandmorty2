@@ -3,8 +3,10 @@ import "./App.css";
 import Cards from "./components/Cards/Cards.jsx";
 import Nav from "./components/Nav/Nav";
 import { Route, Routes } from "react-router-dom";
-import Detail from './components/Detail/Detail.jsx'
-import About from './components/About/About.jsx'
+import Detail from './components/Detail/Detail.jsx';
+import About from './components/About/About.jsx';
+import Form from './components/Form/Form.jsx'
+
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -28,6 +30,7 @@ function App() {
     <div style={{ padding: "25px" }}>
       <Nav onSearch={onSearch} />
       <Routes>
+        <Route path="/" element={<Form/>}/>
         <Route path="/home" element={<Cards characters={characters} onClose={onClose}/>} />
         <Route path="/about" element={<About/>}/>
         <Route path="/detail/:detailId" element={<Detail/>}/>
