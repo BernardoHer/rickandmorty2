@@ -1,15 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Cards from "./components/Cards/Cards.jsx";
 import Nav from "./components/Nav/Nav";
-import { Route, Routes } from "react-router-dom";
-import Detail from './components/Detail/Detail.jsx';
-import About from './components/About/About.jsx';
-import Form from './components/Form/Form.jsx';
-
-
+import { Route, Routes, useLocation } from "react-router-dom";
+import Detail from "./components/Detail/Detail.jsx";
+import About from "./components/About/About.jsx";
+import Form from "./components/Form/Form.jsx";
 
 function App() {
+  const location = useLocation();
+  
   const [characters, setCharacters] = useState([]);
 
   function onSearch(character) {
@@ -23,19 +23,23 @@ function App() {
         }
       });
   }
-  const onClose = (id) =>{
-    const filtered = characters.filter((char)=> char.id !== Number(id)) 
-    setCharacters(filtered)
-  }
+  
+  const onClose = (id) => {
+    const filtered = characters.filter((char) => char.id !== Number(id));
+    setCharacters(filtered);
+  };
   return (
     <div style={{ padding: "25px" }}>
-      <Nav onSearch={onSearch} />
+      {location.pathname !== "/" && <Nav onSearch={onSearch} />}
+
       <Routes>
-        <Route path="/" element={<Form/>}/>
-        <Route path="/home" element={<Cards characters={characters} onClose={onClose}/>} />
-        <Route path="/about" element={<About/>}/>
-        <Route path="/detail/:detailId" element={<Detail/>}/>
-        
+        <Route path="/" element={<Form />} />
+        <Route
+          path="/home"
+          element={<Cards characters={characters} onClose={onClose} />}
+        />
+        <Route path="/about" element={<About />} />
+        <Route path="/detail/:detailId" element={<Detail />} />
       </Routes>
     </div>
   );
