@@ -42,3 +42,6 @@
 .img{
     width: 400px;
 }
+.warning{
+    border-color: red;
+}
