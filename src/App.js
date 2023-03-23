@@ -6,6 +6,7 @@ import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import Detail from "./components/Detail/Detail.jsx";
 import About from "./components/About/About.jsx";
 import Form from "./components/Form/Form.jsx";
+import Error from "./components/Error/Error.jsx";
 
 function App() {
   const navigate = useNavigate();
@@ -59,6 +60,7 @@ function App() {
         />
         <Route path="/about" element={<About />} />
         <Route path="/detail/:detailId" element={<Detail />} />
+        <Route path="*" element={<Error />} />
       </Routes>
     </div>
   );
