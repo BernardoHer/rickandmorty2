@@ -22,18 +22,22 @@ export default function Form(props) {
       }),
     }));
   };
-  useEffect(() => {
-    console.log(userData);
-  }, [userData]);
+  const handleSubmit = (event) =>{
+    event.preventDefault()
+    props.login(userData)
+  }
+  
+  
+
 
   return (
-    <form className={styles.container}>
+    <form className={styles.container} onSubmit={handleSubmit} >
       <img
         className={styles.img}
         src="https://wallpapercave.com/dwp1x/wp4791005.png"
         alt="not found"
       />
-      <label htmlFor="name" className={styles.label}>
+      <label htmlFor="name" className={styles.label} onSubmit={handleSubmit}>
         Nombre:
       </label>
       {errors.username ? (
@@ -61,7 +65,7 @@ export default function Form(props) {
       {errors.password ? (
         <p style={{ color: "red" }}>{errors.password}</p>
       ) : null}
-      <button className={styles.button}>Login</button>
+      <button type="submit" className={styles.button}>Login</button>
       <button type="button" onClick={toggleShowPassword}>
         {showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
       </button>

@@ -8,12 +8,12 @@ import About from "./components/About/About.jsx";
 import Form from "./components/Form/Form.jsx";
 
 function App() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const location = useLocation();
   const [characters, setCharacters] = useState([]);
-  const[access,setAcces] = useState(false)
-  const userName='bernaher19@gmail.com'
-  const password ='berna123'
+  const[access,setAcces] = useState(false);
+  const userName='bernaher19@gmail.com';
+  const password ='berna123';
   
 
   function onSearch(character) {
@@ -34,13 +34,16 @@ function App() {
   };
   
   const login = (userData) =>{
-    userData.username === userName && userData.password === password && setAcces(true) && navigate('/home')
+    if(userData.username === userName && userData.password === password ){
+      setAcces(true);
+      navigate('/home')
+    }
     
   }
   useEffect(()=>{
     !access && navigate('/')
+    },[access,navigate]);
     
-  },[access])
   return (
     <div style={{ padding: "25px" }}>
       {location.pathname !== "/" && <Nav onSearch={onSearch} />}
