@@ -11,13 +11,17 @@ function App() {
   const navigate = useNavigate();
   const location = useLocation();
   const [characters, setCharacters] = useState([]);
-  const[access,setAcces] = useState(false);
-  const userName='bernaher19@gmail.com';
-  const password ='berna123';
-  
+  const [access, setAcces] = useState(false);
+  const userName = "bernaher19@gmail.com";
+  const password = "berna123";
 
   function onSearch(character) {
-    fetch(`https://rickandmortyapi.com/api/character/${character}`)
+    const characterId = Number(character);
+    if (characters.find((char) => char.id === characterId)) {
+      window.alert("Este personaje ya se encuentra en la lista.");
+      return;
+    }
+    fetch(`https://rickandmortyapi.com/api/character/${characterId}`)
       .then((response) => response.json())
       .then((data) => {
         if (data.name) {
@@ -27,29 +31,28 @@ function App() {
         }
       });
   }
-  
+
   const onClose = (id) => {
     const filtered = characters.filter((char) => char.id !== Number(id));
     setCharacters(filtered);
   };
-  
-  const login = (userData) =>{
-    if(userData.username === userName && userData.password === password ){
+
+  const login = (userData) => {
+    if (userData.username === userName && userData.password === password) {
       setAcces(true);
-      navigate('/home')
-    };
-    
-  }
-  useEffect(()=>{
-    !access && navigate('/')
-    },[access,navigate]);
-    
+      navigate("/home");
+    }
+  };
+  useEffect(() => {
+    !access && navigate("/");
+  }, [access, navigate]);
+
   return (
     <div style={{ padding: "25px" }}>
       {location.pathname !== "/" && <Nav onSearch={onSearch} />}
 
       <Routes>
-        <Route path="/" element={<Form login={login}/>} />
+        <Route path="/" element={<Form login={login} />} />
         <Route
           path="/home"
           element={<Cards characters={characters} onClose={onClose} />}

@@ -10,7 +10,7 @@ export default function SearchBar(props) {
   return (
     <div className={styles.container}>
       <input className={styles.searchInput} type="search" onChange={handleInputChange} />
-      <button className={styles.searchButton} onClick={() => props.onSearch(character)}>Agregar</button>
+      <button className={styles.searchButton} onClick={() => props.onSearch(character)}>Add Card</button>
     </div>
   );
 }

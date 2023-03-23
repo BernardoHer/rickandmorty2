@@ -1,35 +1,48 @@
 .container {
-    background-color: #305B8F;
-    border-radius: 20px;
-    display: flex;
-    justify-content: flex-end;
-    padding: 8px;
-    margin-bottom: 20px;
+  background-color: #305b8f;
+  border-radius: 20px;
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px;
+  margin-bottom: 20px;
 }
 
 .active {
-    background-color: #1A2634;
-    color: #fff;
-    border: none;
-    padding: 8px;
-    font-weight: bold;
-    transition: background-color 0.2s ease;
-    text-decoration: none
+  background-color: #1a2634;
+  color: #fff;
+  border: none;
+  padding: 8px;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+  text-decoration: none;
 }
 
 .active:hover {
-    background-color: #2C3E50;
+  background-color: #2c3e50;
 }
 .disable {
-    background-color: #ddd;
-    color: #555;
-    border: none;
-    padding: 8px;
-    font-weight: bold;
-    transition: background-color 0.2s ease;
-    text-decoration: none;
+  background-color: #ddd;
+  color: #555;
+  border: none;
+  padding: 8px;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+  text-decoration: none;
 }
 
 .disable:hover {
-    background-color: #ccc;
+  background-color: #ccc;
+}
+.randomButton {
+  background-color: #a3b579;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px;
+  transition: background-color 0.2s ease;
+}
+.randomButton:hover {
+  background-color: #3e8e41;
 }
