@@ -2,8 +2,11 @@ const initialState = {
   // inicializa el estado
 };
 
-function reducer(state = initialState, action) {
-  // actualiza el estado en respuesta a las acciones
-}
+const reducer = (state = initialState, { type, payload }) => {
+  switch (type) {
+    default:
+      return { ...state };
+  }
+};
 
 export default reducer;
