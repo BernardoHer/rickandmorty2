@@ -22,16 +22,13 @@ export default function Form(props) {
       }),
     }));
   };
-  const handleSubmit = (event) =>{
-    event.preventDefault()
-    props.login(userData)
-  }
-  
-  
-
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    props.login(userData);
+  };
 
   return (
-    <form className={styles.container} onSubmit={handleSubmit} >
+    <form className={styles.container} onSubmit={handleSubmit}>
       <img
         className={styles.img}
         src="https://wallpapercave.com/dwp1x/wp4791005.png"
@@ -65,7 +62,9 @@ export default function Form(props) {
       {errors.password ? (
         <p style={{ color: "red" }}>{errors.password}</p>
       ) : null}
-      <button type="submit" className={styles.button}>Login</button>
+      <button type="submit" className={styles.button}>
+        Login
+      </button>
       <button type="button" onClick={toggleShowPassword}>
         {showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
       </button>

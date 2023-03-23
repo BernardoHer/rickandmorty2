@@ -37,7 +37,7 @@ function App() {
     if(userData.username === userName && userData.password === password ){
       setAcces(true);
       navigate('/home')
-    }
+    };
     
   }
   useEffect(()=>{
