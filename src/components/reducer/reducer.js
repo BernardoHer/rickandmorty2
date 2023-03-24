@@ -1,6 +1,8 @@
-import { ADD_FAVORITE, DELETE_FAVORITE } from "./actionTypes";
+import { ADD_FAVORITE, DELETE_FAVORITE, FILTER,ORDER } from "./actionTypes";
+
 const initialState = {
-  myFavorites: []
+  myFavorites: [],
+  allCharacters: []
 
 };
 
@@ -9,6 +11,7 @@ const reducer = (state = initialState, { type, payload }) => {
     case ADD_FAVORITE:
       return {
         ...state,
+        allCharacters:[...state.allCharacters,payload],
         myFavorites: [...state.myFavorites, payload]
       };
       case DELETE_FAVORITE:
